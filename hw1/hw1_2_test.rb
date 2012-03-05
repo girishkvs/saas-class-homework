@@ -44,4 +44,20 @@ class TestHW1Game < Test::Unit::TestCase
                  ["Armando", "S"])
   end
 
+
+  def test_tournament
+    tournament = [
+                  [
+                   [ ["Armando", "P"], ["Dave", "S"] ],
+                   [ ["Richard", "R"], ["Michael", "S"] ],
+                  ],
+                  [
+                   [ ["Allen", "S"], ["Omer", "P"] ],
+                   [ ["David E.", "R"], ["Richard X.", "P"] ]
+                  ]
+                 ]
+
+    assert_equal(rps_tournament_winner(tournament), ["Richard", "R"])
+  end
+
 end

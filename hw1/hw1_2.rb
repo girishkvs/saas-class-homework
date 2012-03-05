@@ -17,3 +17,13 @@ def rps_game_winner(game)
     return player1
   end
 end
+
+def rps_tournament_winner(tournament)
+  raise WrongNumberOfPlayersError, tournament unless tournament.length == 2
+  branch1, branch2 = tournament
+  if branch1[1].kind_of? String and branch2[1].kind_of? String
+    return rps_game_winner(tournament)
+  else
+    return rps_game_winner([rps_tournament_winner(branch1), rps_tournament_winner(branch2)])
+  end
+end
