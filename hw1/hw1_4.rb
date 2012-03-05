@@ -1,25 +1,13 @@
 #!/usr/bin/env ruby
 
 class Dessert
+
+  attr_accessor :name
+  attr_accessor :calories
+
   def initialize(name, calories)
     @name = name
     @calories = calories
-  end
-
-  def name
-    @name
-  end
-
-  def name=(new_name)
-    @name = new_name
-  end
-
-  def calories
-    @calories
-  end
-
-  def calories=(new_calories)
-    @calories = new_calories
   end
 
   def healthy?
@@ -33,18 +21,13 @@ class Dessert
 end
 
 class JellyBean < Dessert
+
+  attr_accessor :flavor
+
   def initialize(name, calories, flavor)
     @name = name
     @calories = calories
     @flavor = flavor
-  end
-
-  def flavor
-    @flavor
-  end
-
-  def flavor=(new_flavor)
-    @flavor = new_flavor
   end
 
   def delicious?
