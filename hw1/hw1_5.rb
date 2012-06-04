@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby
 
+
 class Class
   def attr_accessor_with_history(attr_name)
     attr_name = attr_name.to_s
@@ -78,8 +79,8 @@ class String
   end
 end
 
-class Array
+module Enumerable
   def palindrome?
-    palindrome(self)
+    return palindrome(to_a())
   end
 end

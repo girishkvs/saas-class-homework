@@ -56,11 +56,17 @@ class TestHW1AdvancedOOPExtend < Test::Unit::TestCase
     assert_equal(false, "Abracadabra".palindrome?)
   end
 
-  def test_enumerables_palindrome
+  def test_arrays_palindrome
     assert_equal(true, [1,2,3,2,1].palindrome?)
     assert_equal(true, [3, 1, 3, 1, 3].palindrome?)
     assert_equal(false, [3, 4, 5, 6].palindrome?)
   end
 
+  def test_hashes_palindrome
+    p = {:x => "foo"}.palindrome?
+    # just shouldn't err
+  end
 
+  def test_iterator_palindrome
+  end
 end
