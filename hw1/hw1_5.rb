@@ -47,7 +47,7 @@ class Numeric
       return self
     else
       raw = @in_dollars / @@currencies[singular_currency]
-      rounded = (raw*100).round / 100.0
+      rounded = (raw*10000).round / 10000.0
       return rounded
     end
   end

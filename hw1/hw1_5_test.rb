@@ -42,9 +42,9 @@ class TestHW1AdvancedOOPExtend < Test::Unit::TestCase
   def test_currency_convertor
     assert_equal(3.87, 5.dollars.in(:euros))
     assert_equal(3.87, 5.dollar.in(:euro))
-    assert_equal(263.16, 5.dollars.in(:rupee))
+    assert_equal(263.1579, 5.dollars.in(:rupee))
     assert_equal(1.3, 100.yen.in(:dollar))
-    assert_equal(68.42, 100.yen.in(:rupees))
+    assert_equal(68.4211, 100.yen.in(:rupees))
 
     # without .<currency> it should return the same value
     assert_equal(5, 5.in(:dollar))
