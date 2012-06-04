@@ -62,3 +62,24 @@ class Numeric
     end
   end
 end
+
+def palindrome(seq)
+  if seq.kind_of? String
+    normalized = seq.strip().downcase().gsub(/\W/, '')
+  else
+    normalized = seq
+  end
+  return normalized == normalized.reverse()
+end
+
+class String
+  def palindrome?
+    palindrome(self)
+  end
+end
+
+class Array
+  def palindrome?
+    palindrome(self)
+  end
+end

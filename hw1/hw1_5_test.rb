@@ -49,4 +49,18 @@ class TestHW1AdvancedOOPExtend < Test::Unit::TestCase
     # without .<currency> it should return the same value
     assert_equal(5, 5.in(:dollar))
   end
+
+  def test_string_palindrome
+    assert_equal(true, "A man, a plan, a canal -- Panama".palindrome?)
+    assert_equal(true, "Madam, I'm Adam!".palindrome?)
+    assert_equal(false, "Abracadabra".palindrome?)
+  end
+
+  def test_enumerables_palindrome
+    assert_equal(true, [1,2,3,2,1].palindrome?)
+    assert_equal(true, [3, 1, 3, 1, 3].palindrome?)
+    assert_equal(false, [3, 4, 5, 6].palindrome?)
+  end
+
+
 end
