@@ -29,3 +29,36 @@ class SomeOtherClass
   attr_accessor_with_history :bar
 end
 
+class WrongCurrency < StandardError; end
+
+class Numeric
+  @@currencies = {
+    'yen' => 0.013,
+    'euro' => 1.292,
+    'rupee' => 0.019,
+    'dollar' => 1.0}
+
+  def in(currency)
+    singular_currency = currency.to_s.gsub( /s$/, '')
+    if ! @@currencies.has_key?(singular_currency)
+      raise WrongCurrency
+    end
+    if @in_dollars == nil
+      return self
+    else
+      raw = @in_dollars / @@currencies[singular_currency]
+      rounded = (raw*100).round / 100.0
+      return rounded
+    end
+  end
+
+  def method_missing(method_id, *args)
+    singular_currency = method_id.to_s.gsub( /s$/, '')
+    if @@currencies.has_key?(singular_currency)
+      @in_dollars = self * @@currencies[singular_currency]
+      return self
+    else
+      super
+    end
+  end
+end

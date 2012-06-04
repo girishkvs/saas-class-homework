@@ -4,7 +4,7 @@ require "test/unit"
 require "hw1_5"
 
 
-class TestHW1AdvancedOOP < Test::Unit::TestCase
+class TestHW1AdvancedOOPMeta < Test::Unit::TestCase
 
   def test_accessor_history
     f = Foo.new
@@ -34,5 +34,19 @@ class TestHW1AdvancedOOP < Test::Unit::TestCase
 
     assert_equal([nil, 1, :atom], so.foo_history)
     assert_equal([nil, 'three', 4, 'ten'], so.bar_history)
+  end
+end
+
+class TestHW1AdvancedOOPExtend < Test::Unit::TestCase
+
+  def test_currency_convertor
+    assert_equal(3.87, 5.dollars.in(:euros))
+    assert_equal(3.87, 5.dollar.in(:euro))
+    assert_equal(263.16, 5.dollars.in(:rupee))
+    assert_equal(1.3, 100.yen.in(:dollar))
+    assert_equal(68.42, 100.yen.in(:rupees))
+
+    # without .<currency> it should return the same value
+    assert_equal(5, 5.in(:dollar))
   end
 end
