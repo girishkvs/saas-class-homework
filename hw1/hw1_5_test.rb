@@ -24,4 +24,15 @@ class TestHW1AdvancedOOP < Test::Unit::TestCase
     assert_equal([nil, 4], f.bar_history)
   end
 
+  def test_multiple_accessor_history
+    so = SomeOtherClass.new
+    so.foo = 1
+    so.bar = 'three'
+    so.foo = :atom
+    so.bar = 4
+    so.bar = 'ten'
+
+    assert_equal([nil, 1, :atom], so.foo_history)
+    assert_equal([nil, 'three', 4, 'ten'], so.bar_history)
+  end
 end

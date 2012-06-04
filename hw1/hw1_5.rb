@@ -23,3 +23,9 @@ end
 class Foo
   attr_accessor_with_history :bar
 end
+
+class SomeOtherClass
+  attr_accessor_with_history :foo
+  attr_accessor_with_history :bar
+end
+
